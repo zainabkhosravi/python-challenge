@@ -1,1 +1,182 @@
+1 #Capital indexes
+def capital_indexes(input_string):
+    capital_indexes_list=[]
+    for indexes,i in enumerate(input_string):
+        if i.isupper():
+           capital_indexes_list.append(indexes)
+    return capital_indexes_list
 
+2 #Middle letter
+def mid(input_string):
+  input_string_len=len(input_string)
+  if(input_string_len%2)==0:
+    return("")
+  else:
+    return input_string[int(((input_string_len+1)/2)-1)]
+
+3 #Online status
+ def online_count(input_dict):
+    online_count=0
+    for value in input_dict.values():
+        if value=="online":
+            online_count+=1
+    return online_count
+ 
+ 4 #Randomness
+  import random
+def random_number():
+    return random.randrange(1,101)
+  
+  5 #Type check
+  def only_ints(a,b):
+    return True if(type(a)==int and type(b)==int)else  False
+  
+ 6  #Double letters
+  def double_letters(name):
+    new_string = list(name)
+    sm = False
+    for i, x in enumerate(new_string):
+        if (i + 1 < len(new_string) and i - 1 >= -1):
+            prev_el = str(new_string[i-1])
+            curr_el = str(x)
+            next_el = str(new_string[i+1])
+            print("{} {}".format(curr_el, next_el))
+            if curr_el == next_el:
+                sm = True
+     return sm
+  print(double_letters('aa'))
+
+7 #Adding and removing dots
+def add_dots(string):
+    
+    return ".".join(string)
+    
+    
+def remove_dots(string):
+    return string.replace(".", "")
+ 
+8 #Counting syllables
+def count(word):
+    new_word = word
+    count_syllables = new_word.split('-')
+    return len(count_syllables)
+print(count("ho-tel"))
+
+9 #Anagrams
+def is_anagram(name1, name2):
+    name1 = name1.lower()
+    arr1 = list(name1)
+    arr1.sort()
+
+    name2 = name2.lower()
+    arr2 = list(name2)
+    arr2.sort()
+    
+    return arr2 == arr1
+    
+10 #Flatten a list
+def flatten(list_of_lists):
+    if len(list_of_lists) == 0:
+        return list_of_lists
+    if isinstance(list_of_lists[0], list):
+        return flatten(list_of_lists[0]) + flatten(list_of_lists[1:])
+    return list_of_lists[:1] + flatten(list_of_lists[1:])
+
+print(flatten([[1, 2, 3, 4], [5, 6, 7], [8, 9], 10]))
+
+11 #Min-maxing
+def largest_difference(numbers):
+ sm_number = numbers
+ la_number = numbers
+ smaller = min(sm_number)
+ largest = max(la_number)
+ return largest - smaller
+
+print(largest_difference([1, 2, 3, 5, 6]))
+
+12 #Divisible by 3
+def div_3(x):
+    if x % 3 == 0:
+        return True
+    else:
+        return False
+
+
+print(div_3(6))
+
+13 #Tic tac toe input
+def get_row_col(s):
+    letters = {'A': 0, 'B': 1, 'C': 2}
+    return (int(s[1]) - 1, letters[s[0]])
+
+14 #Palindrome
+def palindrome(a):
+    return a == a[::-1]
+    
+15 #Up and down
+def up_down(n):
+    return (n-1, n+1)
+    
+16 #Consecutive zeros
+def consecutive_zeros(s):
+    max_count = 0
+    count = 0
+    for char in s:
+        if char == '0':
+            count += 1
+            if count > max_count:
+                max_count = count
+        else:
+            count = 0
+    return max_count
+    
+17 #All equal
+def all_equal(l):
+    for char in l:
+        if l[0] != char:
+            return False
+    return True
+
+18 #Boolean and
+def triple_and(a, b, c):
+    return a and b and c
+    
+19 #Writing short code
+def convert(l):
+    return [str(x) for x in l]
+    
+20 #Custom zip
+def zap(a, b):
+    return [(a[i], b[i]) for i in range(len(a))]
+    
+21 #Solution validation
+def validate(code):
+    if 'def' not in code:
+        return "missing def"
+    if ':' not in code:
+        return "missing :"
+    if '('+')' in code:
+        return "missing param"
+    if '(' not in code or ')' not in code:
+        return "missing paren"
+    if '    ' not in code:
+        return "missing indent"
+    if 'validate' not in code:
+        return "wrong name"
+    if 'return' not in code:
+        return "missing return"
+    return True
+    
+22 #List xor
+def list_xor(n, list1, list2):
+    return (n in list1 or n in list2) and (n not in list1 or n not in list2)
+    
+23 #Counting parameters
+def param_count(*pargs):
+    return len(pargs)
+    
+24 #Thousands separator
+def format_number(n):
+    return '{:,}'.format(n)
+    
+    
